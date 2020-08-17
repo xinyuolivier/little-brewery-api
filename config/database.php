@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$DATABASE_URL=parse_url('JAWSDB_URL');
+$DATABASE_URL=parse_url(getenv('JAWSDB_URL'));
 
 return [
 
