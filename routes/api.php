@@ -22,11 +22,12 @@ use Illuminate\Support\Facades\Route;
     Route::get('/breweries', 'BreweryController@index');
     Route::get('/breweries/{brewery}', 'BreweryController@show');
     Route::get('/breweries/{brewery}/beers', 'BreweryController@showBeers');
+    Route::resource('/users', 'UserController');
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::get('users/{user}/orders', 'UserController@showOrders');
         Route::patch('users/{user}', 'UserController@update');
-        Route::resource('/users', 'UserController');
+        
 
         Route::resource('breweries', 'BreweryController')->except(['index','show']);
 
