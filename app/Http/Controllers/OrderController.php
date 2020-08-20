@@ -46,17 +46,18 @@ namespace App\Http\Controllers;
                 //dd($order["bill"]);
                 //return $order;
                 $orderCreate = Order::create([
-                    'bill' => $order["bill"],
-                    'beer_id' => $order["beer_id"],
+                    'bill' => (string)$order["bill"],
+                    'beer_id' => (int) $order["beer_id"],
                     'user_id' => Auth::id(),
-                    'brewery_id' => $order["brewery_id"],
-                    'quantity' => $order["quantity"],
+                    'brewery_id' => (int) $order["brewery_id"],
+                    'quantity' => (double)$order["quantity"],
                    // 'price' => $order->price,
                     ]);
                 dd([
                     'status' => (bool) $orderCreate,
                     'data'   => $orderCreate,
-                    'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
+                    'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order',
+                    'allorders' => Order::all()
                 ]);
 /* 
                     return response()->json([
