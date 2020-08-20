@@ -36,11 +36,12 @@ namespace App\Http\Controllers;
 
                 var_dump($name, $data['calID'], $data['availMsg']); // $name is the Name of Room
             }
+            { "bill":"1234567890", "beer_id":"1", "user_id":"99999", "brewery_id":"3", "quantity":"5", "price":"1500"}
             */
 
             $responseArr = [];
             foreach($orders as $order){
-                dd(json_decode($order, true));
+                $order = json_decode($order, true);
                 //return $order;
                 $orderCreate = Order::create([
                     'bill' => $order->bill,
@@ -50,6 +51,7 @@ namespace App\Http\Controllers;
                     'quantity' => $order->quantity,
                    // 'price' => $order->price,
                     ]);
+                dd($orderCreate);
 /* 
                     return response()->json([
                         'status' => (bool) $orderCreate,
