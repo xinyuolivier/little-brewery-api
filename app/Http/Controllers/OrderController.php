@@ -68,11 +68,11 @@ namespace App\Http\Controllers;
                         'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
                     ]);
                 */
-                    $responseArr.push([
+                array_push($responseArr, [
                         'status' => (bool) $orderCreate,
                         'data'   => $orderCreate,
                         'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
-                    ]);
+                ]);
                 
                 
             }
