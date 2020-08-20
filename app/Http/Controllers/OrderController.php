@@ -44,7 +44,7 @@ namespace App\Http\Controllers;
                 
                 $order = json_decode($data, true);
                 //dd($order["bill"]);
-                //return $order;
+                return $order["bill"];
                 $orderCreate = Order::create([
                     'bill' => (string)$order["bill"],
                     'beer_id' => (int) $order["beer_id"],
