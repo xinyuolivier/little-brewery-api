@@ -40,7 +40,8 @@ namespace App\Http\Controllers;
             */
 
             $responseArr = [];
-            foreach($orders as $order){
+            foreach($orders as $order => $data){
+                dd($data);
                 $order = json_decode($order, true);
                 //return $order;
                 $orderCreate = Order::create([
