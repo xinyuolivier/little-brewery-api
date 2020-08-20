@@ -30,7 +30,7 @@ namespace App\Http\Controllers;
             $orders = $requests->orders;
 
             //return gettype($orders);
-            dd($orders);
+            //dd($orders);
 /*
             foreach($orders as $order => $data) {
 
@@ -40,6 +40,7 @@ namespace App\Http\Controllers;
 
             $responseArr = [];
             foreach($orders as $order){
+                dd($order);
                 //return $order;
                 $orderCreate = Order::create([
                     'bill' => $order->bill,
