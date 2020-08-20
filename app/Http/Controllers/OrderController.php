@@ -29,7 +29,7 @@ namespace App\Http\Controllers;
         {
             $orders = json_decode($requests->orders, true);
 
-            dd($orders);
+            //dd($orders);
 /*
             foreach($orders as $order => $data) {
 
