@@ -40,11 +40,13 @@ namespace App\Http\Controllers;
             */
 
             $responseArr = [];
-            foreach($orders as $order => $data){
-                
-                //$order = json_decode($data, true);
+            foreach($orders as $order){
+                if (gettype($order) == 'string'){
+                    $order = json_decode($order, true);
+                }
+                //$order = json_decode($order, true);
                 //dd($order["bill"]);
-                return $data['bill'];
+                return $order['bill'];
                 $orderCreate = Order::create([
                     'bill' => (string)$order["bill"],
                     'beer_id' => (int) $order["beer_id"],
