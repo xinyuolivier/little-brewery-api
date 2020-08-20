@@ -30,7 +30,7 @@ namespace App\Http\Controllers;
             $orders = $requests->orders;
 
             //return $orders;
-            //dd($orders);
+            dd($orders);
 /*
             foreach($orders as $order => $data) {
 
@@ -47,7 +47,7 @@ namespace App\Http\Controllers;
                     'user_id' => Auth::id(),
                     'brewery_id' => $order->brewery_id,
                     'quantity' => $order->quantity,
-                    'price' => $order->price,
+                   // 'price' => $order->price,
                     ]);
 /* 
                     return response()->json([
