@@ -25,7 +25,7 @@ class BreweryController extends Controller
      */
     public function store(Request $request)
     {
-        $beer = Brewery::create([
+        $brewery = Brewery::create([
             'name' => $request->name,
             'description' => $request->description,
             'address' => $request->address,
