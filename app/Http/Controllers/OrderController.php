@@ -34,15 +34,28 @@ namespace App\Http\Controllers;
                 if (gettype($order) == 'string'){
                     $order = json_decode($order, true);
                 }
+
                 $orderCreate = Order::create([
                     'bill' => (string)$order["bill"],
                     'beer_id' => (int) $order["beer_id"],
                     'user_id' => Auth::id(),
                     'brewery_id' => (int) $order["brewery_id"],
-                    'quantity' => (double)$order["quantity"],
+                    'quantity' => (int)$order["quantity"],
                     'price' => (double)$order["price"],
                     ]);
+
+                $orderCreate->beer->quantity = $orderCreate->beer->quantity  - $orderCreate->quantity;
+                $orderCreate->beer->save();
                 
+                /*
+                $beer->quantity = $beer->quantity + $request->get('quantity');
+                    $status = $beer->save();
+                $orderCreate->update(
+                    'quantity': (double)$order["quantity"]
+                );
+*/
+
+
                 array_push($responseArr, [
                         'status' => (bool) $orderCreate,
                         'data'   => $orderCreate,
