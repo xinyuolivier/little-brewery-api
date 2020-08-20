@@ -36,11 +36,11 @@ namespace App\Http\Controllers;
                 var_dump($name, $data['calID'], $data['availMsg']); // $name is the Name of Room
             }
             */
-/*
-            foreach($orders as $order => $data){
+
+            foreach($orders as $order){
 
                 dd($order);
-            }*/
+            }
             $order = Order::create([
                 'bill' => $request->bill,
                 'beer_id' => $request->beer_id,
