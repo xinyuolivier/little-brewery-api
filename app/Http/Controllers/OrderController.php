@@ -43,7 +43,7 @@ namespace App\Http\Controllers;
             foreach($orders as $order => $data){
                 
                 $order = json_decode($data, true);
-                dd($order);
+                dd($order["bill"]);
                 //return $order;
                 $orderCreate = Order::create([
                     'bill' => $order->bill,
