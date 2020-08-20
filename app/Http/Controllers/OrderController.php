@@ -29,7 +29,7 @@ namespace App\Http\Controllers;
         {
             $orders = $requests->orders;
 
-            return $orders;
+            //return $orders;
             //dd($orders);
 /*
             foreach($orders as $order => $data) {
