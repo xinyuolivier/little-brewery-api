@@ -29,7 +29,7 @@ namespace App\Http\Controllers;
         {
             $orders = json_decode($requests->orders, true);
 
-            //dd($orders);
+            dd($orders);
 /*
             foreach($orders as $order => $data) {
 
@@ -40,7 +40,6 @@ namespace App\Http\Controllers;
             $responseArr = [];
             foreach($orders as $order){
 
-                $billtest = $order['bill'];
                 $orderCreate = Order::create([
                     'bill' => $order['bill'],
                     'beer_id' => $order['beer_id'],
@@ -58,6 +57,12 @@ namespace App\Http\Controllers;
                 
                 
             }
+
+
+/*  
+[{'bill':'1234567890', 'beer_id': '1', 'user_id':'99999' ,'brewery_id': '3', 'quantity': '5', 'price': '1500'},{'bill':'1234567890', 'beer_id': '3', 'user_id':'99999' ,'brewery_id': '5', 'quantity': '50', 'price': '500'}]
+*/
+
             return response()->json($responseArr);
             /*
             $order = Order::create([
