@@ -41,8 +41,9 @@ namespace App\Http\Controllers;
 
             $responseArr = [];
             foreach($orders as $order => $data){
-                dd($data);
+                
                 $order = json_decode($order, true);
+                dd($order['bill']);
                 //return $order;
                 $orderCreate = Order::create([
                     'bill' => $order->bill,
