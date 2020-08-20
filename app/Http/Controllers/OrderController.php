@@ -53,7 +53,11 @@ namespace App\Http\Controllers;
                     'quantity' => $order["quantity"],
                    // 'price' => $order->price,
                     ]);
-                //dd($orderCreate);
+                dd(json([
+                    'status' => (bool) $orderCreate,
+                    'data'   => $orderCreate,
+                    'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
+                ]));
 /* 
                     return response()->json([
                         'status' => (bool) $orderCreate,
