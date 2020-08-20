@@ -30,7 +30,7 @@ namespace App\Http\Controllers;
             $orders = $requests->orders;
 
             //return $orders;
-            dd($orders);
+            dd($orders[1]);
 /*
             foreach($orders as $order => $data) {
 
