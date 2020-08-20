@@ -27,15 +27,18 @@ namespace App\Http\Controllers;
 
         public function store(Request $requests)
         {
-            $orders = json_decode($requests->orders, true);;
+            $orders = json_decode($requests->orders, true);
+
+            //dd($orders);
 /*
             foreach($orders as $order => $data) {
 
                 var_dump($name, $data['calID'], $data['availMsg']); // $name is the Name of Room
             }
             */
-            foreach($orders as $order){
-                
+
+            foreach($orders as $order => $data){
+
                 dd($order);
             }
             $order = Order::create([
