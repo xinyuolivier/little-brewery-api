@@ -29,8 +29,8 @@ namespace App\Http\Controllers;
         {
             $orders = $requests->orders;
 
-            return gettype($orders);
-            //dd($orders[1]);
+            //return gettype($orders);
+            dd($orders);
 /*
             foreach($orders as $order => $data) {
 
