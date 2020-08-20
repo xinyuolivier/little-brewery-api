@@ -29,7 +29,8 @@ namespace App\Http\Controllers;
         {
             $orders = json_decode($requests->orders);
 
-            dd($orders);
+            return response()->json($orders);
+            //dd($orders);
 /*
             foreach($orders as $order => $data) {
 
