@@ -29,45 +29,20 @@ namespace App\Http\Controllers;
         {
             $orders = $requests->orders;
 
-            //return gettype($orders);
-            //dd($orders);
-/*
-            foreach($orders as $order => $data) {
-
-                var_dump($name, $data['calID'], $data['availMsg']); // $name is the Name of Room
-            }
-            { "bill":"1234567890", "beer_id":"1", "user_id":"99999", "brewery_id":"3", "quantity":"5", "price":"1500"}
-            */
-
             $responseArr = [];
             foreach($orders as $order){
                 if (gettype($order) == 'string'){
                     $order = json_decode($order, true);
                 }
-                //$order = json_decode($order, true);
-                //dd($order["bill"]);
-                //return $order['bill'];
                 $orderCreate = Order::create([
                     'bill' => (string)$order["bill"],
                     'beer_id' => (int) $order["beer_id"],
                     'user_id' => Auth::id(),
                     'brewery_id' => (int) $order["brewery_id"],
                     'quantity' => (double)$order["quantity"],
-                   // 'price' => $order->price,
+                    'price' => (double)$order["price"],
                     ]);
-                /*dd([
-                    'status' => (bool) $orderCreate,
-                    'data'   => $orderCreate,
-                    'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order',
-                    'allorders' => Order::all()
-                ]);*/
-/* 
-                    return response()->json([
-                        'status' => (bool) $orderCreate,
-                        'data'   => $orderCreate,
-                        'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
-                    ]);
-                */
+                
                 array_push($responseArr, [
                         'status' => (bool) $orderCreate,
                         'data'   => $orderCreate,
