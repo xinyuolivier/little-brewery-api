@@ -43,14 +43,14 @@ namespace App\Http\Controllers;
             foreach($orders as $order => $data){
                 
                 $order = json_decode($data, true);
-                dd($order["bill"]);
+                //dd($order["bill"]);
                 //return $order;
                 $orderCreate = Order::create([
-                    'bill' => $order->bill,
-                    'beer_id' => $order->beer_id,
+                    'bill' => $order["bill"],
+                    'beer_id' => $order["beer_id"],
                     'user_id' => Auth::id(),
-                    'brewery_id' => $order->brewery_id,
-                    'quantity' => $order->quantity,
+                    'brewery_id' => $order["brewery_id"],
+                    'quantity' => $order["quantity"],
                    // 'price' => $order->price,
                     ]);
                 dd($orderCreate);
