@@ -40,6 +40,7 @@ namespace App\Http\Controllers;
             $responseArr = [];
             foreach($orders as $order){
 
+                $billtest = $order['bill'];
                 $orderCreate = Order::create([
                     'bill' => $order['bill'],
                     'beer_id' => $order['beer_id'],
