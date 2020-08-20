@@ -46,7 +46,7 @@ namespace App\Http\Controllers;
                 }
                 //$order = json_decode($order, true);
                 //dd($order["bill"]);
-                return $order['bill'];
+                //return $order['bill'];
                 $orderCreate = Order::create([
                     'bill' => (string)$order["bill"],
                     'beer_id' => (int) $order["beer_id"],
@@ -55,29 +55,30 @@ namespace App\Http\Controllers;
                     'quantity' => (double)$order["quantity"],
                    // 'price' => $order->price,
                     ]);
-                dd([
+                /*dd([
                     'status' => (bool) $orderCreate,
                     'data'   => $orderCreate,
                     'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order',
                     'allorders' => Order::all()
-                ]);
+                ]);*/
 /* 
                     return response()->json([
                         'status' => (bool) $orderCreate,
                         'data'   => $orderCreate,
                         'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
                     ]);
-                
-                    $responseArr.push(json([
+                */
+                    $responseArr.push({
                         'status' => (bool) $orderCreate,
                         'data'   => $orderCreate,
                         'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
-                    ]));
+                    }));
                 
-                */
+                
             }
 
-            return response()->json($order,200);
+
+            return response()->json($responseArr,200);
 /*  
 [{'bill':'1234567890', 'beer_id': '1', 'user_id':'99999' ,'brewery_id': '3', 'quantity': '5', 'price': '1500'},{'bill':'1234567890', 'beer_id': '3', 'user_id':'99999' ,'brewery_id': '5', 'quantity': '50', 'price': '500'}]
 */
