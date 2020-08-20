@@ -40,25 +40,25 @@ namespace App\Http\Controllers;
 
             $responseArr = [];
             foreach($orders as $order){
-                return $order;
+                //return $order;
                 $orderCreate = Order::create([
-                    'bill' => $order['bill'],
-                    'beer_id' => $order['beer_id'],
+                    'bill' => $order->bill,
+                    'beer_id' => $order->beer_id,
                     'user_id' => Auth::id(),
-                    'brewery_id' => $order['brewery_id'],
-                    'quantity' => $order['quantity'],
-                    'price' => $order['price'],
+                    'brewery_id' => $order->brewery_id,
+                    'quantity' => $order->quantity,
+                    'price' => $order->price,
                     ]);
 
                     
-                /*
+                
                     $responseArr.push(json([
                         'status' => (bool) $orderCreate,
                         'data'   => $orderCreate,
                         'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
                     ]));
                 
-                */
+                
             }
 
 
@@ -66,11 +66,7 @@ namespace App\Http\Controllers;
 [{'bill':'1234567890', 'beer_id': '1', 'user_id':'99999' ,'brewery_id': '3', 'quantity': '5', 'price': '1500'},{'bill':'1234567890', 'beer_id': '3', 'user_id':'99999' ,'brewery_id': '5', 'quantity': '50', 'price': '500'}]
 */
 
-            return response()->json([
-                'status' => (bool) $orderCreate,
-                'data'   => $orderCreate,
-                'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
-            ]);
+            return response()->json($responseArr);
             /*
             $order = Order::create([
                 'bill' => $request->bill,
