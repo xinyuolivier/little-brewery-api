@@ -40,7 +40,7 @@ namespace App\Http\Controllers;
 
             $responseArr = [];
             foreach($orders as $order){
-
+                return $order;
                 $orderCreate = Order::create([
                     'bill' => $order['bill'],
                     'beer_id' => $order['beer_id'],
@@ -49,6 +49,8 @@ namespace App\Http\Controllers;
                     'quantity' => $order['quantity'],
                     'price' => $order['price'],
                     ]);
+
+                    
                 /*
                     $responseArr.push(json([
                         'status' => (bool) $orderCreate,
