@@ -49,14 +49,14 @@ namespace App\Http\Controllers;
                     'quantity' => $order['quantity'],
                     'price' => $order['price'],
                     ]);
-                
+                /*
                     $responseArr.push(json([
                         'status' => (bool) $orderCreate,
                         'data'   => $orderCreate,
                         'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
                     ]));
                 
-                
+                */
             }
 
 
@@ -64,7 +64,11 @@ namespace App\Http\Controllers;
 [{'bill':'1234567890', 'beer_id': '1', 'user_id':'99999' ,'brewery_id': '3', 'quantity': '5', 'price': '1500'},{'bill':'1234567890', 'beer_id': '3', 'user_id':'99999' ,'brewery_id': '5', 'quantity': '50', 'price': '500'}]
 */
 
-            return response()->json($responseArr);
+            return response()->json([
+                'status' => (bool) $orderCreate,
+                'data'   => $orderCreate,
+                'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
+            ]);
             /*
             $order = Order::create([
                 'bill' => $request->bill,
