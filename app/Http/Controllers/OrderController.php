@@ -27,7 +27,7 @@ namespace App\Http\Controllers;
 
         public function store(Request $requests)
         {
-            $orders = $requests->orders;
+            $orders = json_decode($requests->orders, true);
 
             dd($orders);
 /*
