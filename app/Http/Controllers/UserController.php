@@ -81,4 +81,19 @@ class UserController extends Controller
         {
             return response()->json($user->orders()->with(['beer'])->get());
         }
+
+    public function getSearchResults(Request $request) {
+
+        $data = $request->get('data');
+
+        $search_drivers = Driver::where('firstname', 'like', "%{$data}%")
+                            ->orWhere('lastname', 'like', "%{$data}%")
+                            ->orWhere('role', 'like', "%{$data}%")
+                            ->orWhere('email', 'like', "%{$data}%")
+                            ->get();
+
+        return Response::json([
+            'data' => $search_drivers
+        ]);     
+    }
 }

@@ -27,8 +27,7 @@ use Illuminate\Support\Facades\Route;
     Route::group(['middleware' => 'auth:api'], function(){
         Route::get('users/{user}/orders', 'UserController@showOrders');
         Route::patch('users/{user}', 'UserController@update');
-        
-
+        Route::get('/search/{}', 'UserController@getSearchResults');
         Route::resource('breweries', 'BreweryController')->except(['index','show']);
 
         Route::patch('orders/{order}/deliver', 'OrderController@deliverOrder');

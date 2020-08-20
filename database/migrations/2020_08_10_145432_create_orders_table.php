@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id'); 
             $table->unsignedBigInteger('brewery_id');
             $table->unsignedInteger('quantity')->default(1);
+            $table->double('price');
             $table->boolean('delivered')->default(false);
             $table->timestamps();
 
