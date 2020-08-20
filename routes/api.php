@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/breweries/{brewery}', 'BreweryController@show');
     Route::get('/breweries/{brewery}/beers', 'BreweryController@showBeers');
     Route::resource('/users', 'UserController');
+    Route::get('/orders', 'OrderController@show');
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::get('users/{user}/orders', 'UserController@showOrders');
@@ -31,7 +32,7 @@ use Illuminate\Support\Facades\Route;
         Route::resource('breweries', 'BreweryController')->except(['index','show']);
 
         Route::patch('orders/{order}/deliver', 'OrderController@deliverOrder');
-        Route::resource('/orders', 'OrderController');
+        Route::resource('/orders', 'OrderController')->except(['index','show']);
 
         Route::patch('beers/{beer}/units/add', 'BeerController@updateQuantity');
         Route::resource('/beers', 'BeerController')->except(['index','show']);
