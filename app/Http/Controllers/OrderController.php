@@ -46,15 +46,6 @@ namespace App\Http\Controllers;
 
                 $orderCreate->beer->quantity = $orderCreate->beer->quantity  - $orderCreate->quantity;
                 $orderCreate->beer->save();
-                
-                /*
-                $beer->quantity = $beer->quantity + $request->get('quantity');
-                    $status = $beer->save();
-                $orderCreate->update(
-                    'quantity': (double)$order["quantity"]
-                );
-*/
-
 
                 array_push($responseArr, [
                         'status' => (bool) $orderCreate,
@@ -67,30 +58,6 @@ namespace App\Http\Controllers;
 
 
             return response()->json($responseArr,200);
-/*  
-[{'bill':'1234567890', 'beer_id': '1', 'user_id':'99999' ,'brewery_id': '3', 'quantity': '5', 'price': '1500'},{'bill':'1234567890', 'beer_id': '3', 'user_id':'99999' ,'brewery_id': '5', 'quantity': '50', 'price': '500'}]
-*/
-/*
-            return response()->json([
-                'status' => (bool) $orderCreate,
-                'data'   => $orderCreate,
-                'message' => $orderCreate ? 'Order Created!' : 'Error Creating Order'
-            ]);
-            /*
-            $order = Order::create([
-                'bill' => $request->bill,
-                'beer_id' => $request->beer_id,
-                'user_id' => Auth::id(),
-                'brewery_id' => $request->brewery_id,
-                'quantity' => $request->quantity,
-                'price' => $request->price,
-            ]);
-
-            return response()->json([
-                'status' => (bool) $order,
-                'data'   => $order,
-                'message' => $order ? 'Order Created!' : 'Error Creating Order'
-            ]);*/
         }
 
         public function show(Order $order)
